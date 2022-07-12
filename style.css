@@ -1,65 +1,174 @@
-body{
-  background-image: linear-gradient(to left, #0944E6,#0C8BFD, #16BBD9,#0CF0CD);
-  font-family: Arial, Helvetica, sans-serif
+
+body,html{
+    margin: 0;
+    /* width: 100vh; */
+    height: 100vh;
+    background: url('https://img.freepik.com/fotos-gratis/pessoas-empilhando-as-maos-juntas-no-parque_53876-63293.jpg?w=2000');
+    font-family: 'Montserrat', sans-serif
 }
 
-#main-container{
-  margin-top: 20%;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  margin-bottom: 20%;
+button{
+    font-family: 'Montserrat', sans-serif
 }
-.container{
-  width: 40%;
-  padding: 15px;
-  border-radius: 5px;
-  background: rgba( 73, 174, 88, 0.55 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 10px );
-  -webkit-backdrop-filter: blur( 10px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  }
 
-  input, select{
-    border-radius:5px;
-    height: 35px;
-    border: none;
-    margin: 7px;
-    width: 75%;
-  }
-  
-  .botao-submit{
-    width: 30%;
-    height: 30px;
-    border: 5px;
+.main-login{
+    height: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: flex-end; */
+    align-items: flex-start;
+}
+
+.login-box{
+    width: 40%;
+    height: 100%;
+    background-color:#fffdff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-login{
+    display: flex;
+    flex-direction: column;
+}
+
+.textfield{
+    display: flex;
+    flex-direction: column;
+}
+
+.left-login-title{
+    color: #0f3504;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+input{
+    height: 40px;
+    border: 2px solid #d6d6d6;
     border-radius: 5px;
-    margin: none;
-  }
+    width: 250px;
+    margin-bottom: 10px;
+}
 
-.footer{
-  bottom: 0%;
-  position: relative;
-  width: 100%;
-  height: 20%;
-  border: none;
-  background-color: lightblue;
-  text-align: center;
+input:hover{
+    height: 40px;
+    border: 2px solid #7fda89;
+    border-radius: 5px;
+    width: 250px;
 }
-#div_nome_sobrenome{
-  align-content: center;
-  position: relative;
-  width: 50%;
-}
-#div_text_area{
-  align-content: center;
-  position: relative;
-  width: 25%;
+
+input:focus{
+    outline-color: #e6f99d;
 
 }
 
+input::placeholder{
+    color: #d6d6d6;
+}
+
+/* fbc0bd */
+label{
+    font-size: 14px;
+    color: #e6f99d;
+    margin-bottom: 5px
+}
+
+.btn-login{
+    height: 40px;
+    background-color: #fff;
+    border: 2px solid #c7b99d;
+    border-radius: 50px;
+    color: #e6f99d;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+}
+
+.btn-login:hover{
+    height: 40px;
+    background-color: #7fda89;
+    border:none; 
+    border-radius: 50px;
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 10px;
+
+}
+
+.btn-register{
+    height: 40px;
+    background-color: #7fda89;
+    border: none; 
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+
+.right-side-box{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-login{  
+    text-align: center;    
+}
+
+.right-text-login{
+    font-size: 35px;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.text-login{
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    color:#6fa17b;
+
+}
+
+
+h1 {
+    margin: 0;
+    font-weight: 500;
+}
+
+p{
+    margin: 0;
+} 
+
+.s-m {
+
+position: absolute;    
+top: 65%;
+left: 10%;
+transform: translate(-50, -50);
+
+}
+
+.s-m a {
+
+display: inline-flex;
+width: 10px;
+height: 30px;
+background: #1a1917;
+color: aqua;
+margin: 0.3px;
+border-radius: 48%;
+align-items: flex-start;
+
+
+
+}
