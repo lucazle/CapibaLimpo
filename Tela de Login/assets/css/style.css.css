@@ -1,10 +1,12 @@
-
 body,html{
     margin: 0;
-    /* width: 100vh; */
     height: 100vh;
-    background: url('https://img.freepik.com/fotos-gratis/pessoas-empilhando-as-maos-juntas-no-parque_53876-63293.jpg?w=2000');
-    font-family: 'Montserrat', sans-serif
+    font-family: 'Montserrat', sans-serif;
+    background-color: aliceblue;
+}
+
+#bk-ground{
+    float: right;
 }
 
 button{
@@ -12,17 +14,16 @@ button{
 }
 
 .main-login{
-    height: 100%;
+    margin-left: 17%;
     display: flex;
-    /* flex-direction: column; */
-    /* justify-content: flex-end; */
-    align-items: flex-start;
+    align-items: center;
+
 }
 
 .login-box{
     width: 40%;
     height: 100%;
-    background-color:#fffdff;
+    background-color: aliceblue;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,8 +31,12 @@ button{
 }
 
 .card-login{
+    margin-top: 70%;
     display: flex;
+    /*margin-left: 50%;*/
     flex-direction: column;
+    background-color: aliceblue;
+    margin-bottom: 20%;
 }
 
 .textfield{
@@ -45,6 +50,7 @@ button{
     margin-bottom: 20px;
     text-align: center;
     letter-spacing: 2px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 input{
@@ -74,19 +80,20 @@ input::placeholder{
 /* fbc0bd */
 label{
     font-size: 14px;
-    color: #e6f99d;
+    color: #7fda89;
     margin-bottom: 5px
 }
 
 .btn-login{
     height: 40px;
     background-color: #fff;
-    border: 2px solid #c7b99d;
+    border: 2px solid #a2e4a9;
     border-radius: 50px;
-    color: #e6f99d;
+    color: black;
     margin-top: 30px;
     margin-bottom: 10px;
     cursor: pointer;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
 }
 
