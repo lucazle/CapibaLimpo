@@ -1,0 +1,21 @@
+const mongoose = require('mongoose');
+
+const Voluntario = mongoose.model('Voluntario', {
+    nome: {type: String, required: true, maxLength: 255},
+    cpf: {type: String, required: true, maxLength: 11},
+    email: {type: String, required: true, maxLength: 45},
+    telefone: {type: String, required: true, maxLength: 11},
+    dt_nasc: {type: Date, required: true},
+    senha: {type: String, required: true, maxLength: 15},
+    cep: {type: String, required: true, maxLength: 8},
+    endereco: {type: String, required: true, maxLength: 70},
+    num: {type: String, required: true, maxLength: 4},
+    complemento: {type: String, maxLength: 60},
+    bairro: {type: String, required: true, maxLength: 100},
+    cidade: {type: String, required: true, maxLength: 40},
+    estado: {type: String, required: true, maxLength: 2},
+    dt_coleta: {type: Date, required: true},
+    pontos: {type: String, maxLength: 1000}
+});
+
+module.exports = Voluntario;
