@@ -1,6 +1,7 @@
 const express = require ('express');
 const cors = require ('cors');
 const mongoose = require ('mongoose');
+
 const app = express();
 
 app.use(cors())
@@ -8,10 +9,7 @@ app.use(express.json());
 
 const rotas = require('./src/routes/route');
 
-app.get('/', (req, res) =>{
-
-    res.json({message: 'Oi, Express!'})
-})
+app.use('/cadastro', rotas)
 
 const DB_USER = 'admin'
 const DB_PASSWORD = encodeURIComponent('admin')

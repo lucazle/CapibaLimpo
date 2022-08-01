@@ -5,6 +5,7 @@ const Voluntario = mongoose.model('Voluntario', {
     cpf: {type: String, required: true, maxLength: 11},
     email: {type: String, required: true, maxLength: 45},
     telefone: {type: String, required: true, maxLength: 11},
+    ocupacao: {type: String, required: true},
     dt_nasc: {type: Date, required: true},
     senha: {type: String, required: true, maxLength: 15},
     cep: {type: String, required: true, maxLength: 8},
@@ -14,7 +15,7 @@ const Voluntario = mongoose.model('Voluntario', {
     bairro: {type: String, required: true, maxLength: 100},
     cidade: {type: String, required: true, maxLength: 40},
     estado: {type: String, required: true, maxLength: 2},
-    dt_coleta: {type: Date, required: true},
+    dt_coleta: {type: Date},
     pontos: {type: String, maxLength: 1000}
 });
 

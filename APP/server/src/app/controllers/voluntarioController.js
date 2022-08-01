@@ -1,8 +1,9 @@
 const Voluntario = require('../models/voluntario')
 
 exports.post = async (req, res) => {
-    const {nome, cpf, email, dt_nasc, senha, cep, endereco, num, complemento, bairro, cidade, estado} = req.body;
-    const voluntario = {nome, cpf, email, dt_nasc, senha, cep, endereco, num, complemento, bairro, cidade, estado};
+
+    const {nome, cpf, email, ocupacao, dt_nasc, senha, cep, endereco, num, complemento, bairro, cidade, estado} = req.body;
+    const voluntario = {nome, cpf, email, ocupacao, dt_nasc, senha, cep, endereco, num, complemento, bairro, cidade, estado};
 
     try{
         
