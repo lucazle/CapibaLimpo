@@ -17,3 +17,18 @@ exports.post = async (req, res) => {
 
     }
 }
+
+exports.get = async (req, res) => {
+
+    try {
+
+        const voluntarios = await Voluntario.find()
+        res.status(200).json(voluntarios)
+
+    }catch (error) {
+
+        message = "Não foi possível encontrar os usuários. Erro: " + error
+        res.status(500).json({ erro: message });
+
+    }
+}

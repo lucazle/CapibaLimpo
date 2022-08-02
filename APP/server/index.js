@@ -9,8 +9,6 @@ app.use(express.json());
 
 const rotas = require('./src/routes/route');
 
-app.use('/cadastro', rotas)
-
 const DB_USER = 'admin'
 const DB_PASSWORD = encodeURIComponent('admin')
 
@@ -22,4 +20,3 @@ mongoose.connect(
         app.listen(3000)
     })
     .catch((err) => console.log(err))
-
