@@ -9,8 +9,8 @@ app.use(express.json());
 app.use(routes)
 
 
-const DB_USER = 'admin'
-const DB_PASSWORD = encodeURIComponent('admin')
+const DB_USER = process.env.DB_USER
+const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD)
 
 mongoose.connect(
     `mongodb+srv://${DB_USER}:${DB_PASSWORD}@capibalimpo.d9kxide.mongodb.net/?retryWrites=true&w=majority`

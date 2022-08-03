@@ -14,7 +14,7 @@ const Voluntario = mongoose.model('Voluntario', {
     complemento: {type: String, maxLength: 60},
     bairro: {type: String, required: true, maxLength: 100},
     cidade: {type: String, required: true, maxLength: 40},
-    estado: {type: String, required: true, maxLength: 2},
+    estado: {type: String, required: true},
     dt_coleta: {type: Date},
     pontos: {type: String, maxLength: 1000}
 });
