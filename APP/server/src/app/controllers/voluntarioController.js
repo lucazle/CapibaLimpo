@@ -1,9 +1,9 @@
 const Voluntario = require('../models/voluntario')
 
-exports.post = async (req, res) => {
+const cadastrarVol = async (req, res) => {
 
-    const {nome, cpf, email, ocupacao, dt_nasc, senha, cep, endereco, num, complemento, bairro, cidade, estado} = req.body;
-    const voluntario = {nome, cpf, email, ocupacao, dt_nasc, senha, cep, endereco, num, complemento, bairro, cidade, estado};
+    const {nome, cpf, email, telefone, ocupacao, dt_nasc, senha, cep, endereco, num, complemento, bairro, cidade, estado} = req.body;
+    const voluntario = {nome, cpf, email, telefone, ocupacao, dt_nasc, senha, cep, endereco, num, complemento, bairro, cidade, estado};
 
     try{
         
@@ -18,7 +18,7 @@ exports.post = async (req, res) => {
     }
 }
 
-exports.get = async (req, res) => {
+const resgatarVol = async (req, res) => {
 
     try {
 
@@ -32,3 +32,5 @@ exports.get = async (req, res) => {
 
     }
 }
+
+module.exports = {cadastrarVol, resgatarVol}

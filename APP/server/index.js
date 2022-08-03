@@ -1,13 +1,13 @@
 const express = require ('express');
 const cors = require ('cors');
 const mongoose = require ('mongoose');
-
+const {routes} = require('./src/routes/route');
 const app = express();
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
+app.use(routes)
 
-const rotas = require('./src/routes/route');
 
 const DB_USER = 'admin'
 const DB_PASSWORD = encodeURIComponent('admin')

@@ -1,7 +1,12 @@
-const voluntarioRotas = require ('./voluntarioRotas');
-const apoiadorRotas = require ('./apoiadorRotas');
+const {cadastrarVol, resgatarVol} = require('../app/controllers/voluntarioController')
 
-module.exports = (app) => {
-    voluntarioRotas(app),
-    apoiadorRotas(app)
-}
+const express = require('express');
+const routes = express.Router()
+
+routes.get('/teste', (req, res) => {
+    return res.json({message: 'Servidor Online'})
+})
+
+routes.post('/cadastro', cadastrarVol)
+
+module.exports={routes}
