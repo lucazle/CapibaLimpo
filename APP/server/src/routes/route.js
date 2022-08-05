@@ -1,32 +1,28 @@
-const {cadastrarVol, exibirVol, atualizarVol, deletarVol} = require('../app/controllers/voluntarioController')
-
 const express = require('express');
 const routes = express.Router()
 
-routes.get('/teste', (req, res) => {
-    return res.json({message: 'Servidor Online'})
-})
+const {cadastrarVol, exibirVol, atualizarVol, deletarVol} = require ('../app/controllers/voluntarioController')
+const {authVol} = require ('../app/controllers/authController')
+const {formsApo} = require ('../app/controllers/apoiadorController')
+const {checkToken} = require ('../middlewares/jwt')
+
+
+//rotas voluntário
+routes.post('/login', authVol)
 
 routes.post('/cadastro', cadastrarVol)
 
-routes.get('/perfil/:id', exibirVol)
+routes.get('/perfil/:id', checkToken, exibirVol)
 
 routes.put('/perfil/:id', atualizarVol)
 
 routes.delete('/perfil/:id', deletarVol)
 
+
+//rotas apoiador
+routes.post('/apoiador', formsApo)
+
 module.exports={routes}
 
 
-
 const voluntarioController = require ('../app/controllers/voluntarioController');
-
-/*
-module.exports = (app) => {
-    app.post('/cadastro', voluntarioController.post);
-    app.put('/useratualizacao/:id', voluntarioController.put);
-    app.delete('/user/userdeletar/:id', voluntarioController.delete);
-    app.get('/voluntarios', voluntarioController.get);
-    app.get('/voluntario/:id', voluntarioController.getById);
-}
-*/
