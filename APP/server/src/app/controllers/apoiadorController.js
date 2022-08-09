@@ -2,8 +2,13 @@ const Apoiador = require ('../models/apoiador')
 
 const formsApo = async (req, res) =>{
 
-    const {nome, email, cnpj, cep, mensagem} = req.body;
-    const apoiador = {nome, email, cnpj, cep, mensagem};
+    const {nome, email, cnpj, mensagem} = req.body;
+    const apoiador = {
+        nome, 
+        email, 
+        cnpj, 
+        mensagem
+    };
 
     try{
 

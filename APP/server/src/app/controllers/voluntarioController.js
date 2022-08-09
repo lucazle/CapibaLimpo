@@ -3,7 +3,7 @@ const bcrypt = require ('bcrypt')
 
 const cadastrarVol = async (req, res) => {
 
-    const {nome, cpf, email, telefone, sexo, ocupacao, dt_nasc, senha, confirm_senha, cep, logradouro, num, complemento, bairro, cidade, estado} = req.body;
+    const {nome, cpf, email, telefone, dt_nasc, senha, confirm_senha} = req.body;
 
     if(!nome) {
         return res.status(422).json({ msg: "O nome é obrigatório!" })
@@ -21,14 +21,6 @@ const cadastrarVol = async (req, res) => {
         return res.status(422).json({ msg: "O telefone é obrigatório!" })
     }
 
-    if(!sexo) {
-        return res.status(422).json({ msg: "O sexo é obrigatório!" })
-    }
-
-    if(!ocupacao) {
-        return res.status(422).json({ msg: "A ocupação é obrigatória!" })
-    }
-
     if(!dt_nasc) {
         return res.status(422).json({ msg: "A data de nascimento é obrigatória!" })
     }
@@ -39,30 +31,6 @@ const cadastrarVol = async (req, res) => {
 
     if(senha !== confirm_senha) {
         return res.status(422).json({ msg: "As senhas não conferem!" })
-    }
-        
-    if(!cep) {
-        return res.status(422).json({ msg: "O cep é obrigatório!" })
-    }
-
-    if(!logradouro) {
-        return res.status(422).json({ msg: "O logradouro é obrigatório!" })
-    }
-        
-    if(!num) {
-        return res.status(422).json({ msg: "O num é obrigatório!" })
-    }
-        
-    if(!bairro) {
-        return res.status(422).json({ msg: "O bairro é obrigatório!" })
-    }
-        
-    if(!cidade) {
-        return res.status(422).json({ msg: "A cidade é obrigatória!" })
-    }
-
-    if(!estado) {
-        return res.status(422).json({ msg: "O estado é obrigatório!" })
     }
 
 //checar se vol existe
@@ -75,7 +43,7 @@ const cadastrarVol = async (req, res) => {
     const salt = await bcrypt.genSalt(12)
     const senhaHash = await bcrypt.hash(senha, salt)
 
-    const voluntario = {nome, cpf, email, telefone, sexo, ocupacao, dt_nasc, senha : senhaHash, cep, logradouro, num, complemento, bairro, cidade, estado};
+    const voluntario = {nome, cpf, email, telefone, dt_nasc, senha : senhaHash};
 
     try{
         
@@ -117,7 +85,7 @@ const atualizarVol = async (req, res) => {
 
     const id = req.params.id
 
-    const {nome, cpf, email, telefone, sexo, ocupacao, dt_nasc, senha, confirm_senha, cep, logradouro, num, complemento, bairro, cidade, estado} = req.body;
+    const {nome, cpf, email, telefone, dt_nasc, senha, confirm_senha,} = req.body;
 
     const volExiste = await Voluntario.findOne({ email: email })
 
@@ -129,30 +97,20 @@ const atualizarVol = async (req, res) => {
         return res.status(422).json({ msg: "As senhas não conferem!" })
     }
 
-    const salt = await bcrypt.genSalt(12)
-    const senhaHash = await bcrypt.hash(senha, salt)
+    const hashPassword = await bcrypt.hash(senha, 12);
 
     const voluntario = {
-        nome, 
-        cpf, 
+        nome,
+        cpf,
         email, 
         telefone,
-        sexo, 
-        ocupacao, 
         dt_nasc, 
-        senha : senhaHash, 
-        cep, 
-        logradouro, 
-        num, 
-        complemento, 
-        bairro, 
-        cidade, 
-        estado
+        senha: hashPassword
     };
 
     try {
         
-        const updatedVoluntario = await Voluntario.updateOne({_id:id}, voluntario)
+        const updatedVoluntario = await Voluntario.findByIdAndUpdate(id, voluntario, {new: true});
 
         if(updatedVoluntario.matchedCount === 0) {
             res.status(422).json({message: 'O voluntário não foi encontrado!'})
@@ -178,8 +136,6 @@ const deletarVol = async (req, res) => {
         }
     
     try{
-
-        await Voluntario.deleteOne({_id:id})
 
         res.status(200).json({message: 'Voluntário removido com sucesso!'})
 
