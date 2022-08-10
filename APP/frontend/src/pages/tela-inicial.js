@@ -2,7 +2,7 @@ import React from 'react';
 // import { useNavigate } from 'react-router-dom';
 
 
-export const telaInicial = () => {
+ const TelaInicial = () => {
     // let navigate = UseNavigate();
     return (
         <div>
@@ -23,3 +23,4 @@ export const telaInicial = () => {
         // </section>
     )
 }
+export default TelaInicial;

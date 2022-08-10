@@ -1,20 +1,21 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import { Routes, Route, Link, Router } from 'react-router-dom';
 import './App.css';
-import { telaInicial } from './pages/tela-inicial';
+import TelaInicial from './pages/tela-inicial.js';
+import Home from './pages/home.js'
 
-function App() {
-  return (
-    <div className="App">
-       <h1>CAVALO</h1>
-       <Router>
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1>CAVALO</h1>
         <Routes>
-           <Route exact path='/boi' element={<telaInicial />} />
+          <Route path='/' element={<TelaInicial />} />
+          <Route path='/home' element={<Home />} />
         </Routes>
-       </Router>
-       
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default App;
