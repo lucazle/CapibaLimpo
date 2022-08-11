@@ -1,26 +1,24 @@
 import React from 'react';
-
+import voluntario from '../imagens/voluntario.png';
+import apoiador from '../imagens/apoiador.png';
+import adm from '../imagens/adm.png';
+import '../css/tela-inicial.css'
 
 const TelaInicial = () => {
-    
     return (
         <div>
             <section id="container">
-
-                <section class="volun">
-                    <img class="icon" alt="img-voluntario" src="assets/img/icon-vol.png" width="30%"/>
-                    <button class="button">
-                        <a id="link" href="../Tela de Login/Html.2.html">
-                            <h2>Voluntário</h2>
-                        </a>
-                    </button>
+                <section class="box">
+                    <img class="icon" src={voluntario} /><br/>
+                    <button class="button"><a href=""><h2>Voluntário</h2></a></button>
                 </section>
-
-                <section class="apoia">
-                    <img class="icon" alt="img-apoiador" src="assets/img/icon-apo.png" width="30%"/>
-                    <button class="button">
-                        <h2>Apoiador</h2>
-                    </button>
+                <section class="box">
+                    <img class="icon" src={apoiador} /><br/>
+                    <button class="button"><a href=""><h2>Apoiador</h2></a></button>
+                </section>
+                <section class="box">
+                    <img class="icon" src={adm} /><br/>
+                    <button class="button"><a href=""><h2>Administrador</h2></a></button>
                 </section>
             </section>
         </div>
