@@ -1,10 +1,12 @@
 import React from 'react';
 import './../css/tela-home.css';
 import logoHome from '../imagens/logo.png';
+import NavBar from '../components/navBar'; 
 
 const Home = () => {
     return (
         <div>
+            <NavBar/>
             <main>
                 <section class="home">
                     <div class="home-text">
