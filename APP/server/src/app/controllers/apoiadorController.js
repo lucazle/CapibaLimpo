@@ -1,27 +1,29 @@
-const Apoiador = require ('../models/apoiador')
+const Apoiador = require('../models/apoiador')
 
-const formsApo = async (req, res) =>{
+const formsApo = async (req, res) => {
 
     const {nome, email, cnpj, mensagem} = req.body;
     const apoiador = {
-        nome, 
-        email, 
-        cnpj, 
+        nome,
+        email,
+        cnpj,
         mensagem
     };
 
-    try{
+    try {
 
         await Apoiador.create(apoiador)
         res.status(201).json({message: "Formulário enviado com sucesso!"})
 
-    }catch(error){
+    } catch (error) {
 
         message = "Não foi possível enviar o formulário. Erro: " + error
-        res.status(500).json({ erro: message });
+        res.status(500).json({erro: message});
 
     }
 
 }
 
-module.exports = {formsApo}
+module.exports = {
+    formsApo
+}

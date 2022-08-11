@@ -1,63 +1,63 @@
 const Voluntario = require('../models/voluntario')
 const bcrypt = require ('bcrypt')
+const nodemailer = require ('nodemailer')
+const sendMail = require ('../../modules/contaCriada_mailer')
 
 const cadastrarVol = async (req, res) => {
 
     const {nome, cpf, email, telefone, dt_nasc, senha, confirm_senha} = req.body;
 
-    if(!nome) {
-        return res.status(422).json({ msg: "O nome é obrigatório!" })
-    }
-
-    if(!cpf) {
-        return res.status(422).json({ msg: "O cpf é obrigatório!" })
-    }
-
-    if(!email) {
-        return res.status(422).json({ msg: "O email é obrigatório!" })
-    }
-
-    if(!telefone) {
-        return res.status(422).json({ msg: "O telefone é obrigatório!" })
-    }
-
-    if(!dt_nasc) {
-        return res.status(422).json({ msg: "A data de nascimento é obrigatória!" })
-    }
-
-    if(!senha) {
-        return res.status(422).json({ msg: "A senha é obrigatória!" })
-    }
-
-    if(senha !== confirm_senha) {
-        return res.status(422).json({ msg: "As senhas não conferem!" })
-    }
-
 //checar se vol existe
     const volExiste = await Voluntario.findOne({ email: email })
 
     if(volExiste) {
-        return res.status(422).json({ msg: "Este e-mail já está cadastrado!" })
+         return res.status(422).json({ msg: "Este e-mail já está cadastrado!" })
     }
     
     const salt = await bcrypt.genSalt(12)
     const senhaHash = await bcrypt.hash(senha, salt)
 
-    const voluntario = {nome, cpf, email, telefone, dt_nasc, senha : senhaHash};
-
-    try{
+    const voluntario = {
+        nome, 
+        cpf, 
+        email, 
+        telefone, 
+        dt_nasc, 
+        senha: senhaHash};
         
+        const transporter = nodemailer.createTransport({
+              port: 465,
+              host: "smtp.gmail.com",
+              auth: {
+                user: "capibalimpo@gmail.com",
+                pass: "zhwamuvdlxzpwlll",
+              },
+              secure: true,
+            });
+            transporter.sendMail({
+                from: 'capibalimpo@gmail.com',
+                to: req.body.email,
+                subject: 'Conta Criada',
+                text: 'Nós do CampibaLimpo ficamos muito felizes em saber que você gostaria de fazer parte do nosso projeto! Acesse o site e marque uma data! :)',
+                html: "<stronger>Nós do CampibaLimpo ficamos muito felizes em saber que você gostaria de fazer parte do nosso projeto! Acesse o site e marque uma data! :)</stronger>"
+            }, (err, info) => {
+                console.log(info.envelope);
+                console.log(info.messageId);
+            })
+        
+    try{
+     
         await Voluntario.create(voluntario)
         res.status(201).json({message: "Cadastro efetuado com sucesso!"})
 
+    
     }catch(error){
-       
+    
         message = "Não foi possível realizar o cadastro. Erro: " + error
         res.status(500).json({ erro: message });
 
     }
 }
-
 const exibirVol = async (req, res) => {
 
     const id = req.params.id

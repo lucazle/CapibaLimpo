@@ -1,11 +1,12 @@
 const express = require('express');
-const routes = express.Router()
+const routes = express.Router();
 
+const {} = require ('../modules/contaCriada_mailer')
 const {cadastrarVol, exibirVol, atualizarVol, deletarVol} = require ('../app/controllers/voluntarioController')
 const {authCheckVol, authCheckAdmin} = require ('../app/controllers/authController')
 const {formsApo} = require ('../app/controllers/apoiadorController')
 const {cadastroAdmin, exibirAdmin, atualizarAdmin, exibirForm, apoAprovado, apoNegado, cadastroEvento, mostrarEventos, atualizarEvento, deletarEvento} = require ('../app/controllers/adminController')
-const {checkToken} = require ('../middlewares/jwt')
+const {checkToken} = require ('../app/middlewares/jwt')
 
 
 //rotas voluntário
@@ -32,8 +33,6 @@ routes.post('/eventos/cadastro', cadastroEvento);
 routes.get('/eventos', mostrarEventos);
 routes.put('/eventos/atualizar/:id', atualizarEvento);
 routes.delete('/eventos/:id', deletarEvento)
-
-
 
 /*rotas adm
 get p buscar todas solicitações pendentes ou seja a coluna approved esta null
