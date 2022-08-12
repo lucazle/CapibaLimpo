@@ -1,72 +1,48 @@
 import React from 'react';
 import './../css/tela-cadastro.css';
-import logoTela from '../imagens/LOGOLATERAL.png';
+import logoTela from '../imagens/icon-login.png';
 
 // import bootstrap from './assets/bootstrap/css/bootstrap.css'
 
 const TelaCadastro = () => {
 
-  return (
-   <div className="container">
-     <div className="container-cadastro">
-       <div className="wrap-cadastro">
-         <form className="cadastro-form">
+    return (
 
-           <span className="cadastro-form-title"> Crie sua conta</span>
-
-           <span className="cadastro-form-title">
-             <img src={logoTela} alt="logoProjeto"/>
-           </span>
-            
-            <div className="wrap-input">
-              <input type="text"/>
-               <span className="focus-input" data-placeholder="Nome Completo"/>
+        <div>
+            <div>
+                <img className='logo-cadastro'
+                    src={logoTela}
+                    alt="logo-projeto"/>
             </div>
-            
-            <div className="wrap-input">
-              <input type="text"/>
-               <span className="focus-input" data-placeholder="CPF ex: 000.000.000-00"/>
+            <div className="container">
+                <div className='card-cadastro'>
+                  <div className='box-cadastro'>
+                    <h2>Crie sua conta</h2>
+                    <form id="register-form">
+                        <div className="user-box">
+                            <input className="input-texto" type="text" placeholder="Digite seu nome completo" name="nome" id="nome"/>
+                            <input className="input-texto" type="text" placeholder="Digite seu CPF ex: 000.000.000-00" name="cpf" id="cpf"/>
+                            <input className="input-texto" type="email" placeholder="E-mail" name="email" id="email"/>
+                            <input className="input-texto" type="text" placeholder="Digite seu telefone" name="telefone" id="telefone"/>
+                            <input className="input-texto" type="date" placeholder="Data de Nascimento" name="data de nascimento" id="data de nascimento"/>
+                            <input className="input-texto" type="password" placeholder="Senha" name="senha" id="senha"/>
+                            <input className="input-texto" type="password" placeholder="Confirmar senha" name="senha" id="senha"/>
+                        </div>
+                        <div className="btn-cadastro">
+                            <button type="submit" className="botao-submit">
+                                <b>CONFIRMAR</b>
+                            </button>
+                            <button type="reset" className="botao-submit">
+                                <b>Cancelar</b>
+                            </button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div className="wrap-input">
-              <input type="email"/>
-               <span className="focus-input" data-placeholder="E-mail"/>
-            </div>
-
-            <div className="wrap-input">
-              <input type="text"/>
-               <span className="focus-input" data-placeholder="Digite seu telefone"/>
-            </div>
-
-            <div className="wrap-input">
-              <input type="date"/>
-               <span className="focus-input" data-placeholder="dd/mm/aaaa"/>
-            </div>
-           
-            <div className="wrap-input">
-              <input type="password"/>
-               <span className="focus-input" data-placeholder="Senha"/>
-            </div>
-
-            <div className="wrap-input">
-              <input type="password"/>
-               <span className="focus-input" data-placeholder="Confirme sua senha"/>
-            </div>
-
-            <div> 
-            <button className='btn-sm btn-success' type="submit"> Confirmar </button>
-            </div>
-
-            <div> 
-            <button className='btn-sm btn-success' type="reset"> Cancelar </button>
-            </div>
-
-
-         </form>
-       </div>
-     </div>
-   </div>
-  );
+    );
 }
 
 export default TelaCadastro;
